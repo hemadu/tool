@@ -94,9 +94,9 @@ import java.math.RoundingMode;
  ![image](https://github.com/user-attachments/assets/21a67556-8bd7-4552-890f-178250d8c9bb)
 
 import java.util.Collections;  // 导入 Collections 类
-import java.util.List;         // 导入 List 接口
-import java.util.ArrayList;    // 如果你使用ArrayList实现List
-import java.util.Comparator;   // 导入 Comparator 接口
+import java.util.List;
+import java.util.ArrayList;  
+import java.util.Comparator; 
        
     public static void sortPetsByAgeDesc(List<Pet> pets) {
         pets.sort((p1, p2) -> Integer.compare(p2.getAge(), p1.getAge()));//这个是新版本 
