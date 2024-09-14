@@ -91,5 +91,21 @@ import java.math.RoundingMode;
         // 保留两位小数，使用四舍五入模式
         BigDecimal roundedValue = value.setScale(2, RoundingMode.HALF_UP);
 
+ ![image](https://github.com/user-attachments/assets/21a67556-8bd7-4552-890f-178250d8c9bb)
 
+import java.util.Collections;  // 导入 Collections 类
+import java.util.List;         // 导入 List 接口
+import java.util.ArrayList;    // 如果你使用ArrayList实现List
+import java.util.Comparator;   // 导入 Comparator 接口
+       
+    public static void sortPetsByAgeDesc(List<Pet> pets) {
+        pets.sort((p1, p2) -> Integer.compare(p2.getAge(), p1.getAge()));//这个是新版本 
+        Collections.sort(pets, (p1, p2) -> Integer.compare(p2.getAge(), p1.getAge()));//这个是老版本  对于 Collections.sort()，除了需要 List 和 Comparator，还必须导入 Collections 类
+
+    }
+        
+        sortPetsByAgeDesc(pets);
+
+        System.out.println("After sorting:");
+        pets.forEach(System.out::println);
     
