@@ -71,19 +71,6 @@ import java.time.format.DateTimeFormatter;
         LocalDateTime inputDateTime = LocalDateTime.parse(dateTimeInput, dateTimeFormatter);
     
 创建一个方法来检查输入时间是否处于特定的时间范围内
-    public static boolean isAccessAllowed(LocalDateTime inputDateTime) {
-   
-        // 定义时间限制
-        LocalTime startTime = LocalTime.of(8, 0);  // 早上8:00
-        LocalTime endTime = LocalTime.of(17, 30);  // 下午5:30
-
-        // 提取输入的时间部分
-        LocalTime inputTime = inputDateTime.toLocalTime();
-
-        // 检查当前时间是否在允许的范围内
-        return inputTime.isAfter(startTime) && inputTime.isBefore(endTime);
-    }
-
 
     public static boolean isAccessAllowed(LocalDateTime inputDateTime) {
     // 定义时间限制
