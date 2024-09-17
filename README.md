@@ -65,10 +65,18 @@ import java.time.format.DateTimeFormatter;
         // 格式化当前日期时间
         String formattedDateTime = now.format(dateTimeFormatter);
 
-        // 用户输入日期时间
-        System.out.print("请输入日期和时间（格式 yyyy-MM-dd HH:mm）: ");
-        String dateTimeInput = scanner.nextLine();
-        LocalDateTime inputDateTime = LocalDateTime.parse(dateTimeInput, dateTimeFormatter);
+       while (true) {
+            try {
+                System.out.print("请输入日期和时间（格式 yyyy-MM-dd HH:mm）: ");
+                String dateTimeInput = scanner.nextLine();
+                LocalDateTime inputDateTime = LocalDateTime.parse(dateTimeInput, dateTimeFormatter);
+                break;
+            } catch (DateTimeParseException e) {
+                // 解析失败
+                System.out.println("输入格式错误，请按正确格式输入（例如 2021-12-15 13:45）");
+            }
+        }
+        
     
 创建一个方法来检查输入时间是否处于特定的时间范围内
 
