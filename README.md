@@ -54,24 +54,52 @@ stringBuilder.append(name1 + "," + name2 + "," + name3 + "," + name4 + "\n");
 如何使用LocalDateTime
 
 import java.time.LocalDateTime;
-// 获取当前的日期和时间
-LocalDateTime now = LocalDateTime.now();
-// 从LocalDateTime对象中获取分钟
-int minute = now.getMinute();
+import java.time.format.DateTimeFormatter;
 
+        // 获取当前日期时间
+        LocalDateTime now = LocalDateTime.now();
 
-创建一个方法来检查当前时间是否处于特定的时间范围内
-    public static boolean isAccessAllowed() {
+        // 创建日期时间格式化器，格式为 yyyy-MM-dd HH:mm
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+        // 格式化当前日期时间
+        String formattedDateTime = now.format(dateTimeFormatter);
+
+        // 用户输入日期时间
+        System.out.print("请输入日期和时间（格式 yyyy-MM-dd HH:mm）: ");
+        String dateTimeInput = scanner.nextLine();
+        LocalDateTime inputDateTime = LocalDateTime.parse(dateTimeInput, dateTimeFormatter);
+    
+创建一个方法来检查输入时间是否处于特定的时间范围内
+    public static boolean isAccessAllowed(LocalDateTime inputDateTime) {
+   
         // 定义时间限制
         LocalTime startTime = LocalTime.of(8, 0);  // 早上8:00
         LocalTime endTime = LocalTime.of(17, 30);  // 下午5:30
 
-        // 获取当前时间
-        LocalTime now = LocalTime.now();
+        // 提取输入的时间部分
+        LocalTime inputTime = inputDateTime.toLocalTime();
 
         // 检查当前时间是否在允许的范围内
-        return now.isAfter(startTime) && now.isBefore(endTime);
+        return inputTime.isAfter(startTime) && inputTime.isBefore(endTime);
     }
+
+
+    public static boolean isAccessAllowed(LocalDateTime inputDateTime) {
+    // 定义时间限制
+    LocalTime startTime = LocalTime.of(8, 0);  // 早上8:00
+    LocalTime endTime = LocalTime.of(17, 30);  // 下午5:30
+
+    // 提取输入的时间部分
+    LocalTime inputTime = inputDateTime.toLocalTime();
+
+    // 检查当前时间是否在允许的范围内
+    return inputTime.isAfter(startTime) && inputTime.isBefore(endTime);
+
+    // 检查当前时间是否在允许的范围内，包括开始和结束时间
+    return !inputTime.isBefore(startTime) && !inputTime.isAfter(endTime);
+}
+
     
 检查输入的日期时间是否为过去的时间
         public static boolean isValidDateTime(LocalDateTime dateTime) {
