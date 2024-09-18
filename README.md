@@ -1,16 +1,12 @@
 # tool
-![17a7f2817210aa7c0642318b2d51b074](https://github.com/user-attachments/assets/1404ac6b-ac85-4f2e-bbff-6f2f845de6b1)
-
-给我一个正则表达式 要求 由四位的（半角英文或者半角数字）组成  其中第一位跟第三位只能是数字  其他的可以是英文也可以是数字  其中能使用的英文只有（BEIOQVZ）之外的19个字母 并且英文必须是大写
 
 ^[0-9][ACDFGHJKLMNPRSTUWXYZ][0-9][ACDFGHJKLMNPRSTUWXYZ]$
 
-给我一个正则表达式 要求只能是半角英文 半角数字 半角空格 半角. 半角() 组成
 
 ^[a-zA-Z0-9 .()]*$
 ^[1-9][0-9]{0,11}$
 
-
+StringBuilder
 对于一个已经得到的对象
 
 StringBuilder stringBuilder = new StringBuilder();
